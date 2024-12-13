@@ -10,7 +10,7 @@ import {
 } from "firebase/firestore";
 import { db } from "./config";
 
-const collectionName = "websites";
+const collectionName = "Productos";
 
 export const saveWebsite = (newLink) =>
   addDoc(collection(db, collectionName), newLink);
@@ -28,3 +28,12 @@ export const getWebsites = () => getDocs(collection(db, collectionName));
 export const deleteWebsite = (id) => deleteDoc(doc(db, collectionName, id));
 
 export const getWebsite = (id) => getDoc(doc(db, collectionName, id));
+
+export const getUsuarios = async () => {
+  const querySnapshot = await getDocs(collection(db, "Administradores"));
+  const usuarios = [];
+  querySnapshot.forEach((doc) => {
+    usuarios.push({ id: doc.id, ...doc.data() });
+  });
+  return usuarios;
+};
