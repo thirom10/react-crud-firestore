@@ -23,7 +23,6 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Ruta principal: Si está autenticado, redirige al dashboard */}
         <Route
           path="/"
           element={
@@ -34,8 +33,6 @@ function App() {
             )
           }
         />
-
-        {/* Dashboard para administradores */}
         <Route
           path="/dashboard"
           element={
@@ -46,14 +43,10 @@ function App() {
             )
           }
         />
-
-        {/* Login */}
         <Route
           path="/login"
           element={<LoginForm onLoginSuccess={handleLogin} />}
         />
-
-        {/* Formulario para agregar y editar */}
         <Route
           path="add"
           element={
@@ -74,14 +67,10 @@ function App() {
             )
           }
         />
-
-        {/* Vista pública para administradores */}
         <Route
           path="/public"
           element={<WebsiteList isAuthenticated={false} />}
         />
-
-        {/* Página no encontrada */}
         <Route path="*" element={<h1>Página no encontrada</h1>} />
       </Routes>
     </Router>
