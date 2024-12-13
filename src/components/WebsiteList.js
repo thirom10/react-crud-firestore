@@ -35,6 +35,7 @@ export const WebsiteList = () => {
 
   return (
     <div className="container mt-5">
+      <button onClick={()=>navigate(`/login`)}>Iniciar sesion</button>
       <h2>Lista de Productos</h2>
       <div className="row">
         {websites.map((website) => (
@@ -72,7 +73,6 @@ export const WebsiteList = () => {
           </div>
         ))}
       </div>
-      <h1>hola</h1>
     </div>
   );
 };
