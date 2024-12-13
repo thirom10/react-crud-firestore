@@ -13,9 +13,9 @@ export const Dashboard = ({ onLogout }) => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <h1 className="navbar-brand">
             Admin Dashboard
-          </a>
+          </h1>
           <button className="btn btn-outline-danger" onClick={handleLogout}>
             Logout
           </button>

@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import { onGetLinks, deleteWebsite } from "../firebase/api"; // Asegúrate de que la ruta sea correcta
+import { onGetLinks, deleteWebsite } from "../firebase/api";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify"; // Asegúrate de que este paquete esté instalado
+import { toast } from "react-toastify";
 
 export const WebsiteList = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(
+  const [isAuthenticated] = useState(
     localStorage.getItem("isAuthenticated") === "true"
   );
   const [websites, setWebsites] = useState([]);
   const navigate = useNavigate();
 
+  
   useEffect(() => {
     const unsubscribe = onGetLinks((querySnapshot) => {
       const websitesArray = [];
