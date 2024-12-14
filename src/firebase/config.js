@@ -1,18 +1,19 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 
-var firebaseConfig = {
-  apiKey: "AIzaSyBWpX9BLfT0uilS2MB93-RMhTBds8TZBKA",
-  authDomain: "fb-crud-react-a7eb7.firebaseapp.com",
-  projectId: "fb-crud-react-a7eb7",
-  storageBucket: "fb-crud-react-a7eb7.firebasestorage.app",
-  messagingSenderId: "693758047979",
-  appId: "1:693758047979:web:31a15639f007f00adef0ae",
-  measurementId: "G-HC7Z0TNDS7",
+const firebaseConfig = {
+  apiKey: "AIzaSyBH4jXPZ03yBcoPuvgY57zlf9Sm3tLXFGk",
+  authDomain: "prueba-img-9ccd7.firebaseapp.com",
+  projectId: "prueba-img-9ccd7",
+  storageBucket: "prueba-img-9ccd7.firebasestorage.app",
+  messagingSenderId: "691707910104",
+  appId: "1:691707910104:web:aee20f840ade9887eec4ad",
+  measurementId: "G-HSDS23816V"
 };
 
-initializeApp(firebaseConfig);
-
-export const db = getFirestore();
-export const auth = getAuth();
+const app =initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+export const auth = getAuth(app);
+export const storage = getStorage(app);
