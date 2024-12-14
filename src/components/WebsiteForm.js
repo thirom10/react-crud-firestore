@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { toast } from "react-toastify";
 import {
   saveWebsite,
@@ -53,7 +53,7 @@ export const WebsiteForm = () => {
   };
 
   // Cargar datos si estamos en modo de edición
-  const loadWebsite = async () => {
+  const loadWebsite = useCallback(async () => {
     try {
       const doc = await getWebsite(params.id);
       if (doc.exists()) {
@@ -68,13 +68,13 @@ export const WebsiteForm = () => {
       console.error("Error al cargar el website:", error);
       toast("Error al cargar los datos", { type: "error" });
     }
-  };
-
+  }, [params.id]); // Ahora loadWebsite se memoiza y solo se ejecuta cuando params.id cambia
+  
   useEffect(() => {
     if (params.id) {
       loadWebsite();
     }
-  }, [params.id]);
+  }, [params.id, loadWebsite]);
 
   // Enviar formulario
   const handleSubmit = async (e) => {
