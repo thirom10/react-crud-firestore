@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build"  # Construcción del frontend
+  publish = "build"          # Directorio de publicación del frontend
+
+[functions]
+  directory = "backend/functions"  # Aquí indicamos la carpeta donde están las funciones
